@@ -64,7 +64,9 @@ body {
     animation: fadeIn 1s ease-out;
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
     position: relative;
-    padding-top: 60px; /* Space for profile pic to peek above */
+    /* *** CRITICAL CHANGE HERE *** */
+    /* Adjust padding-top to give enough space for the 250px image to "peek" */
+    padding-top: 150px; /* Increased from 60px to 150px (Roughly half the image height + original padding) */
     padding-bottom: 60px; /* Add padding bottom to make space for the button */
 }
 
