@@ -16,8 +16,8 @@
     --button-hover-shadow-color: rgba(0, 123, 255, 0.3);
     --profile-border-color: #007bff;
     --profile-shadow-color: rgba(0, 123, 255, 0.3);
-    --toggle-button-color: #555; /* Color for the toggle button icon/text */
-    --toggle-button-hover-color: #007bff;
+    --toggle-button-color: #888; /* Softer light grey */
+    --toggle-button-hover-color: #555; /* Slightly darker grey on hover */
 }
 
 /* Dark Mode Colors */
@@ -35,8 +35,8 @@ body.dark-mode {
     --button-hover-shadow-color: rgba(0, 0, 0, 0.5);
     --profile-border-color: #8bbff7;
     --profile-shadow-color: rgba(139, 191, 247, 0.3);
-    --toggle-button-color: #e0e0e0;
-    --toggle-button-hover-color: #8bbff7;
+    --toggle-button-color: #c0c0c0; /* Light grey for dark mode toggle */
+    --toggle-button-hover-color: #e0e0e0;
 }
 
 /* Apply Variables to Elements */
@@ -51,6 +51,7 @@ body {
     color: var(--text-color); /* Use variable */
     line-height: 1.6;
     transition: background 0.5s ease, color 0.5s ease; /* Smooth transition for theme change */
+    position: relative; /* Important for positioning the toggle button */
 }
 
 .container {
@@ -121,14 +122,18 @@ p {
 
 /* Theme Toggle Button Styling */
 #theme-toggle {
+    position: absolute; /* Position it relative to the body */
+    top: 20px; /* 20px from the top */
+    right: 20px; /* 20px from the right */
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.8em; /* Slightly larger icon */
-    margin-top: 20px; /* Space from last button */
+    font-size: 1.6em; /* Slightly smaller icon to be less intrusive */
     color: var(--toggle-button-color); /* Variable for button color */
     transition: color 0.3s ease, transform 0.3s ease;
     outline: none; /* Remove outline on focus */
+    padding: 10px; /* Add some padding for easier clicking */
+    border-radius: 50%; /* Make it circular */
 }
 
 #theme-toggle:hover {
