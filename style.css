@@ -2,39 +2,39 @@
 
 /* Define CSS Variables for Colors */
 :root {
-    /* Light Mode Colors (Default) */
-    --background-color: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    /* Light Mode Colors (Default - Green Theme) */
+    --background-color: linear-gradient(135deg, #e6ffe6 0%, #b3e6b3 100%); /* Lighter green gradient */
     --container-bg: #ffffff;
     --text-color: #333;
-    --heading-color: #007bff;
+    --heading-color: #28a745; /* Bootstrap success green */
     --paragraph-color: #555;
-    --border-color: #007bff;
+    --border-color: #28a745;
     --box-shadow-color: rgba(0, 0, 0, 0.15);
-    --button-bg: #007bff;
-    --button-hover-bg: #0056b3;
-    --button-shadow-color: rgba(0, 123, 255, 0.2);
-    --button-hover-shadow-color: rgba(0, 123, 255, 0.3);
-    --profile-border-color: #007bff;
-    --profile-shadow-color: rgba(0, 123, 255, 0.3);
+    --button-bg: #28a745;
+    --button-hover-bg: #218838;
+    --button-shadow-color: rgba(40, 167, 69, 0.2);
+    --button-hover-shadow-color: rgba(40, 167, 69, 0.3);
+    --profile-border-color: #28a745;
+    --profile-shadow-color: rgba(40, 167, 69, 0.3);
     --toggle-button-color: #888; /* Softer light grey */
     --toggle-button-hover-color: #555; /* Slightly darker grey on hover */
 }
 
-/* Dark Mode Colors */
+/* Dark Mode Colors (Green Theme) */
 body.dark-mode {
-    --background-color: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); /* Darker gradient */
-    --container-bg: #3f5b72; /* Darker container background */
+    --background-color: linear-gradient(135deg, #1e3c2c 0%, #2a4e3a 100%); /* Darker green gradient */
+    --container-bg: #3b5f4c; /* Darker green container background */
     --text-color: #e0e0e0; /* Light text */
-    --heading-color: #8bbff7; /* Lighter blue for headings */
+    --heading-color: #8ce196; /* Lighter green for headings */
     --paragraph-color: #c0c0c0;
-    --border-color: #8bbff7;
-    --box-shadow-color: rgba(0, 0, 0, 0.4); /* Darker shadow */
-    --button-bg: #5a7ea8; /* Muted blue for dark mode buttons */
-    --button-hover-bg: #4a6a8e;
+    --border-color: #8ce196;
+    --box-shadow-color: rgba(0, 0, 0, 0.4);
+    --button-bg: #4f8a61; /* Muted green for dark mode buttons */
+    --button-hover-bg: #407151;
     --button-shadow-color: rgba(0, 0, 0, 0.3);
     --button-hover-shadow-color: rgba(0, 0, 0, 0.5);
-    --profile-border-color: #8bbff7;
-    --profile-shadow-color: rgba(139, 191, 247, 0.3);
+    --profile-border-color: #8ce196;
+    --profile-shadow-color: rgba(140, 225, 150, 0.3);
     --toggle-button-color: #c0c0c0; /* Light grey for dark mode toggle */
     --toggle-button-hover-color: #e0e0e0;
 }
@@ -47,25 +47,25 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background: var(--background-color); /* Use variable */
-    color: var(--text-color); /* Use variable */
+    background: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
-    transition: background 0.5s ease, color 0.5s ease; /* Smooth transition for theme change */
-    /* Remove position: relative from body if it was there before, as it's no longer needed for the button */
+    transition: background 0.5s ease, color 0.5s ease;
 }
 
 .container {
     text-align: center;
-    background-color: var(--container-bg); /* Use variable */
+    background-color: var(--container-bg);
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px var(--box-shadow-color); /* Use variable */
+    box-shadow: 0 10px 30px var(--box-shadow-color);
     max-width: 450px;
     width: 90%;
     animation: fadeIn 1s ease-out;
-    transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
-    position: relative; /* **IMPORTANT:** This makes it the positioning context for the button */
-    padding-top: 60px; /* Add more padding at the top to make space for the button */
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    position: relative;
+    padding-top: 60px; /* Space for profile pic to peek above */
+    padding-bottom: 60px; /* **NEW:** Add padding bottom to make space for the button */
 }
 
 .profile-pic {
@@ -73,27 +73,26 @@ body {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    /* Move margin-top to position the pic correctly after increasing container padding */
     margin-top: -35px; /* Adjust this value if needed to center the image slightly higher */
     margin-bottom: 25px;
-    border: 4px solid var(--profile-border-color); /* Use variable */
-    box-shadow: 0 0 15px var(--profile-shadow-color); /* Use variable */
-    transition: border-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
+    border: 4px solid var(--profile-border-color);
+    box-shadow: 0 0 15px var(--profile-shadow-color);
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 h1 {
-    color: var(--heading-color); /* Use variable */
+    color: var(--heading-color);
     margin-bottom: 10px;
     font-size: 2.2em;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-    transition: color 0.5s ease; /* Smooth transition */
+    transition: color 0.5s ease;
 }
 
 p {
-    color: var(--paragraph-color); /* Use variable */
+    color: var(--paragraph-color);
     margin-bottom: 30px;
     font-size: 1.1em;
-    transition: color 0.5s ease; /* Smooth transition */
+    transition: color 0.5s ease;
 }
 
 .link-button {
@@ -101,14 +100,14 @@ p {
     width: calc(100% - 30px);
     padding: 18px;
     margin: 15px auto;
-    background-color: var(--button-bg); /* Use variable */
-    color: white; /* Text color remains white for buttons */
+    background-color: var(--button-bg);
+    color: white;
     text-decoration: none;
     border-radius: 10px;
     transition: all 0.3s ease;
     font-size: 1.2em;
     font-weight: bold;
-    box-shadow: 0 4px 10px var(--button-shadow-color); /* Use variable */
+    box-shadow: 0 4px 10px var(--button-shadow-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,30 +118,30 @@ p {
 }
 
 .link-button:hover {
-    background-color: var(--button-hover-bg); /* Use variable */
+    background-color: var(--button-hover-bg);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px var(--button-hover-shadow-color); /* Use variable */
+    box-shadow: 0 8px 20px var(--button-hover-shadow-color);
 }
 
 /* Theme Toggle Button Styling */
 #theme-toggle {
     position: absolute; /* Position it relative to the .container */
-    top: 15px; /* 15px from the top of the container */
+    bottom: 15px; /* **CHANGED:** 15px from the bottom of the container */
     right: 15px; /* 15px from the right of the container */
-    background: none; /* No background */
-    border: none; /* No border */
+    background: none;
+    border: none;
     cursor: pointer;
-    font-size: 1.5em; /* A little smaller to be subtle */
-    color: var(--toggle-button-color); /* Variable for button color */
+    font-size: 1.5em;
+    color: var(--toggle-button-color);
     transition: color 0.3s ease, transform 0.3s ease;
-    outline: none; /* Remove outline on focus */
-    padding: 8px; /* Small padding for clickable area */
-    border-radius: 50%; /* Make it circular for better visual */
-    z-index: 10; /* Ensure it stays on top of other elements */
+    outline: none;
+    padding: 8px;
+    border-radius: 50%;
+    z-index: 10;
 }
 
 #theme-toggle:hover {
-    color: var(--toggle-button-hover-color); /* Variable for hover color */
+    color: var(--toggle-button-hover-color);
     transform: scale(1.1);
 }
 
