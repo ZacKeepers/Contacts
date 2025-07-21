@@ -69,8 +69,8 @@ body {
 }
 
 .profile-pic {
-    width: 150px; /* INCREASED SIZE: from 120px to 150px */
-    height: 150px; /* INCREASED SIZE: from 120px to 150px */
+    width: 250px; /* INCREASED SIZE: from 120px to 150px */
+    height: 250px; /* INCREASED SIZE: from 120px to 150px */
     border-radius: 50%;
     object-fit: cover;
     margin-top: -55px; /* ADJUSTED: More negative margin to pull it up further */
