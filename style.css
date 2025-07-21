@@ -73,7 +73,7 @@ body {
     height: 250px; /* INCREASED SIZE: from 120px to 150px */
     border-radius: 50%;
     object-fit: cover;
-    margin-top: -55px; /* ADJUSTED: More negative margin to pull it up further */
+    margin-top: -100px; /* ADJUSTED: More negative margin to pull it up further */
     margin-bottom: 10px; /* REDUCED SPACE: from 25px to 10px */
     border: 4px solid var(--profile-border-color);
     box-shadow: 0 0 15px var(--profile-shadow-color);
