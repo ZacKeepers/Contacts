@@ -65,16 +65,16 @@ body {
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
     position: relative;
     padding-top: 60px; /* Space for profile pic to peek above */
-    padding-bottom: 60px; /* **NEW:** Add padding bottom to make space for the button */
+    padding-bottom: 60px; /* Add padding bottom to make space for the button */
 }
 
 .profile-pic {
-    width: 180px;
-    height: 180px;
+    width: 150px; /* INCREASED SIZE: from 120px to 150px */
+    height: 150px; /* INCREASED SIZE: from 120px to 150px */
     border-radius: 50%;
     object-fit: cover;
-    margin-top: -35px; /* Adjust this value if needed to center the image slightly higher */
-    margin-bottom: 15px;
+    margin-top: -55px; /* ADJUSTED: More negative margin to pull it up further */
+    margin-bottom: 10px; /* REDUCED SPACE: from 25px to 10px */
     border: 4px solid var(--profile-border-color);
     box-shadow: 0 0 15px var(--profile-shadow-color);
     transition: border-color 0.5s ease, box-shadow 0.5s ease;
@@ -82,6 +82,7 @@ body {
 
 h1 {
     color: var(--heading-color);
+    margin-top: 0; /* ADDED: Remove default top margin from h1 */
     margin-bottom: 10px;
     font-size: 2.2em;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
@@ -125,9 +126,9 @@ p {
 
 /* Theme Toggle Button Styling */
 #theme-toggle {
-    position: absolute; /* Position it relative to the .container */
-    bottom: 15px; /* **CHANGED:** 15px from the bottom of the container */
-    right: 15px; /* 15px from the right of the container */
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
     background: none;
     border: none;
     cursor: pointer;
