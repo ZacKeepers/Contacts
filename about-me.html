@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Zachary Keepers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+    <main class="content-page">
+        <button id="theme-toggle" aria-label="Toggle light and dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <a class="back-link" href="index.html">← Back to Contact Information</a>
+        <h1>About Me</h1>
+        <p>I am Zachary Keepers, a mechanical engineering student at the University of Alabama with a passion for robotics and automotive design.</p>
+        <p>This portfolio highlights my interests, experience, and projects as I continue developing my engineering skills.</p>
+    </main>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        function setTheme(theme) {
+            body.classList.toggle('dark-mode', theme === 'dark');
+            themeToggle.querySelector('i').className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const nextTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+            setTheme(nextTheme);
+            localStorage.setItem('theme', nextTheme);
+        });
+    </script>
+</body>
+</html>

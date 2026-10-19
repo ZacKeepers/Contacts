@@ -10,6 +10,18 @@
 </head>
 <body>
     <div class="container">
+        <nav class="site-menu" aria-label="Main navigation">
+            <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Open navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="menu-links" id="main-menu">
+                <a href="about-me.html">About Me</a>
+                <a href="project-portfolio.html">Project Portfolio</a>
+            </div>
+        </nav>
+
         <button id="theme-toggle">
             <i class="fas fa-moon"></i>
         </button>
@@ -41,6 +53,8 @@
 
     <script>
         const themeToggle = document.getElementById('theme-toggle');
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainMenu = document.getElementById('main-menu');
         const body = document.body;
 
         // Function to set the theme
@@ -74,6 +88,30 @@
             } else {
                 setTheme('dark');
                 localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+            mainMenu.classList.toggle('is-open', !isOpen);
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.site-menu')) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', 'Open navigation menu');
+                mainMenu.classList.remove('is-open');
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', 'Open navigation menu');
+                mainMenu.classList.remove('is-open');
+                menuToggle.focus();
             }
         });
     </script>
