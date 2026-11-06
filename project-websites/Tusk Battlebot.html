@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tusk Combat Robot - Zachary Keepers</title>
+    <link rel="stylesheet" href="../style.css?v=2">
+</head>
+<body>
+    <main class="content-page project-blog">
+        <button id="theme-toggle" aria-label="Toggle light and dark mode">
+            <span aria-hidden="true">☾</span>
+        </button>
+        <a class="back-link" href="../project-portfolio.html">← Back to Project Portfolio</a>
+
+        <h1>Tusk</h1>
+        <p>Tusk is a 3lb Combat Robot designed to combete in the National Havoc Robot League. Tusk is part of the University of Alabama's Crimson Combat club. 
+            As Team Lead I direct the strategy, design, and construction of Tusk. I have modeled 95% of Tusk.</p>
+
+        <article class="project-update">
+            <h2>Almost Done!</h2>
+
+            <figure>
+                <div class="tusk-almost-done-frame">
+                    <img class="tusk-almost-done-image" src="../project-photos/Tusk Bot Photo.png" alt="Tusk as of 11/5/2026">
+                </div>
+                <figcaption>CAD model of Tusk as of November 5th, 2026</figcaption>
+            </figure>
+
+            <textarea class="update-text" aria-label="Project update text">WOW! A lot has gotten done. Since the last update, we have lost over 50 grams, found a new composite called SRPP to use in place of carbon fiber, and found a machine to cut the UHMWPE side plates.
+
+From all these updates though came some set backs and more work to do. With some new manuvering of wheels and front fork holders I decided to shink the front wheel to 1.5in instead of 2in. I will also need to redo the belt shields to account for the angled belt, and fix the now red riddled part studio of the chassis.
+
+Action Items: Design front forks/wedge, finish the shrinking of the front wheels, edit the belt sheild to work with the new belt, and redo FEA analysis.</textarea>
+        </article>
+        
+        <article class="project-update">
+            <h2>The Fabrication Realization</h2>
+
+            <textarea class="update-text" aria-label="Project update text">After spending a lot of time trying to design our front forks to be strong and cheap, I realized that with modern innovation we can now print titanium and alumnium. This removed my worry of needed a very precise 3-axis cnc mill for our center strut and opened the door to much more unique titanium fork/ wedge designs.
+
+During this I was able to secure a sponser to create our center strut out of carbon fiber nylon with similar specifications to alumnium 6061 for us to test.
+
+Action items: Design front forks/wedge and LOSE WEIGHT!</textarea>
+        </article>
+
+        <article class="project-update">
+            <h2>Getting More Members</h2>
+
+            <figure>
+                <img class="tusk-almost-done-image" src="../project-photos/Tusk FEA.png" alt="FEA Analysis of Chassis Side Plate">
+                <figcaption>A sample photo of the FEA Analysis done with Tusk</figcaption>
+            </figure>
+
+            <textarea class="update-text" aria-label="Project update text">As Tusk became an official team I started getting more members. With those other members I wanted to make sure they were given the opportunity to help with the design of the bot. To streamline this process I created a Github Repository and GitHub Project to track notes and tasks. This has served as our teams hub for task management. 
+
+Before progressing much further with the design of Tusk I decided to do some rudimentary FEA analysis. This involved checking the side plate rigidity and a chassis torsional stiffness.
+
+Action Items: Add belt sheilds, design front forks, and look into manufacturability.</textarea>
+        </article>
+
+        <article class="project-update">
+            <h2>The Proposal</h2>
+
+            <figure>
+                <img class="tusk-almost-done-image" src="../project-photos/Roller Pitch Slideshow.png" alt="Photo of Tusk when we were proposing">
+                <figcaption>Slide from the proposal presentation given to the Executive Board of Crimson Combat.</figcaption>
+            </figure>
+
+            <div class="update-text"><p>On September 25th, 2026, I presented to the Executive Board of Crimson Combat Club to ask for support and permission to build Tusk.
+                    You can find our presentation here: <a href="https://canva.link/ivfcfxnuxgb9b3n" target="_blank" rel="noopener noreferrer">https://canva.link/ivfcfxnuxgb9b3n</a></p></div>
+        </article>
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        function setTheme(theme) {
+            body.classList.toggle('dark-mode', theme === 'dark');
+            themeToggle.querySelector('span').textContent = theme === 'dark' ? '☀' : '☾';
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const nextTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+            setTheme(nextTheme);
+            localStorage.setItem('theme', nextTheme);
+        });
+
+        document.querySelectorAll('.update-text').forEach((textArea) => {
+            const resizeTextArea = () => {
+                textArea.style.height = 'auto';
+                textArea.style.height = `${textArea.scrollHeight}px`;
+            };
+
+            resizeTextArea();
+            textArea.addEventListener('input', resizeTextArea);
+        });
+    </script>
+</body>
+</html>

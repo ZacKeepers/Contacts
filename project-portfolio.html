@@ -8,14 +8,34 @@
     <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
-    <main class="content-page">
+    <main class="content-page project-page">
         <button id="theme-toggle" aria-label="Toggle light and dark mode">
             <i class="fas fa-moon"></i>
         </button>
         <a class="back-link" href="index.html">← Back to Contact Information</a>
         <h1>Project Portfolio</h1>
-        <p>Projects and engineering work will be featured here as they are completed.</p>
-        <p>Check back soon to see more of my robotics, automotive, and mechanical engineering projects.</p>
+        <p class="project-intro">Explore a collection of my projects. Select a project to learn more about the design process, challenges, and final result.</p>
+
+        <section class="project-grid" aria-label="Projects">
+            <!-- Duplicate a project card to add another project to the collection. -->
+            <a class="project-card" href="project-websites/Tusk Battlebot.html">
+                <div class="project-image" style="--project-image: url('project-photos/Tusk Bot Photo.png');">
+                </div>
+                <h2><strong>"Tusk"</strong> : A 3lb Combat Robot</h2>
+            </a>
+
+            <a class="project-card" href="project-websites/24331 Cypher.html">
+                <div class="project-image" style="--project-image: url('project-photos/Cypher Photo.jpg');">
+                </div>
+                <h2>FTC 24331 25-26 Worlds Competition Robot</h2>
+            </a>
+
+            <a class="project-card" href="project-websites/10101 Waka-Waka.html">
+                <div class="project-image" style="--project-image: url('project-photos/Waka-Waka Photo.jpg');">
+                </div>
+                <h2>FRC 10101 25-26 Worlds Competition Robot</h2>
+            </a>
+        </section>
     </main>
     <script>
         const themeToggle = document.getElementById('theme-toggle');

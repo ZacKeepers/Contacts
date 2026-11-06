@@ -160,8 +160,8 @@ body {
 
 .content-page {
     position: relative;
-    max-width: 650px;
-    width: 90%;
+    max-width: 1100px;
+    width: min(90%, 1100px);
     padding: 40px;
     border-radius: 15px;
     background-color: var(--container-bg);
@@ -175,6 +175,174 @@ body {
 
 .content-page p {
     text-align: left;
+}
+
+.project-page {
+    box-sizing: border-box;
+}
+
+.project-intro {
+    max-width: 760px;
+}
+
+.project-disclaimer {
+    padding: 12px 16px;
+    border-left: 4px solid var(--heading-color);
+    background-color: var(--container-bg);
+    color: var(--paragraph-color);
+    font-style: italic;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.project-card {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    text-decoration: none;
+    box-shadow: 0 5px 15px var(--box-shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px var(--box-shadow-color);
+}
+
+.project-card:focus-visible {
+    outline: 3px solid var(--heading-color);
+    outline-offset: 3px;
+}
+
+.project-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    background-image: var(--project-image), linear-gradient(135deg, var(--button-bg), var(--heading-color));
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    font-size: 0.95em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.project-image span {
+    padding: 12px;
+    border: 1px dashed rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+}
+
+.project-card h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    margin: 0;
+    padding: 12px;
+    color: var(--heading-color);
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.project-update {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+}
+
+.project-update h2,
+.project-update h3 {
+    color: var(--heading-color);
+}
+
+.project-update figure {
+    margin: 20px 0;
+}
+
+.project-update img,
+.project-image img {
+    display: block;
+    width: 100%;
+    max-height: 520px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.tusk-almost-done-frame {
+    width: 100%;
+    height: 520px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tusk-almost-done-image {
+    width: 100%;
+    height: 100%;
+    max-height: none !important;
+    object-fit: contain !important;
+}
+
+.project-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--button-bg), var(--heading-color));
+    color: #fff;
+    font-weight: 600;
+}
+
+.project-update figcaption {
+    margin-top: 8px;
+    color: var(--paragraph-color);
+    font-size: 0.9em;
+    font-style: italic;
+    text-align: center;
+}
+
+.update-content {
+    line-height: 1.6;
+}
+
+.update-text {
+    width: 100%;
+    min-height: 150px;
+    box-sizing: border-box;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--container-bg);
+    color: var(--text-color);
+    font: inherit;
+    line-height: 1.6;
+    overflow: hidden;
+    resize: none;
+}
+
+.update-text a {
+    color: var(--heading-color);
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.update-text a:hover,
+.update-text a:focus-visible {
+    color: var(--button-hover-bg);
 }
 
 .back-link {
@@ -267,6 +435,15 @@ p {
 }
 
 @media (max-width: 600px) {
+    .content-page {
+        padding: 30px 20px;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 16px;
+    }
+
     .site-menu {
         top: 14px;
         right: 14px;

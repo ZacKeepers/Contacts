@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRC 10101 25-26 Waka-Waka - Zachary Keepers</title>
+    <link rel="stylesheet" href="../style.css?v=2">
+</head>
+<body>
+    <main class="content-page project-blog">
+        <button id="theme-toggle" aria-label="Toggle light and dark mode">
+            <span aria-hidden="true">☾</span>
+        </button>
+        <a class="back-link" href="../project-portfolio.html">← Back to Project Portfolio</a>
+
+        <h1>Waka-Waka</h1>
+        <p>Waka-Waka was the competition robot developed by FIRST Robotics Competition Team 10101. As a lead designer of the robot, I oversaw the CAD modeling of all its subsystems.
+            I also worked to machine its parts and construct Waka-Waka. The robot competed in four events, including the World Championship.</p>
+        <p class="project-disclaimer">As Waka-Waka is an old project its design history is not shown.</p>
+
+        <article class="project-update">
+            <h2>Overview</h2>
+
+            <figure>
+                <img src="../project-photos/Waka-Waka Photo.jpg" alt="Waka-Waka in the playoffs of Bayou Regional">
+                <figcaption>Waka-Waka competing in the fierce playoffs of Bayou Regional.</figcaption>
+            </figure>
+
+            <div>
+                <p>Waka-Waka is FRC Team 10101 Critical Hit's competition robot, featuring an omnidirectional swerve drive and a maximum fuel storage capacity of 25 to 30 game pieces.
+                     It uses PhotonVision for field positioning, contributes toward every ranking point level, and can drive under the trench and over the bump.</p>
+
+                <h3>Clyde</h3>
+                <p>The belt indexer subsystem uses 5 belts to pull fuel from the intake toward the column. It efficiently manages internal transfer to ensure smooth game element feeding.</p>
+
+                <h3>Blinky</h3>
+                <p>The three-column launcher uses three motors to launch three pieces of fuel at once and 10 to 15 pieces per second. It provides high-volume scoring capability during match play.</p>
+
+                <h3>Pac-Maze</h3>
+                <p>The hopper expands as the intake lowers, providing a maximum storage capacity of 25 to 30 pieces of fuel at a time. This design maximizes collection volume while maintaining compact dimensions.</p>
+
+                <h3>Wowowowo</h3>
+                <p>The reliable omnidirectional swerve drive chassis allows the robot to maneuver quickly and fluidly on the field. It supports agile navigation while maintaining the strength to play defense.</p>
+
+                <h3>Pac-Man</h3>
+                <p>The 21-inch intake uses silicone grip rollers on an over-the-bumper system to rapidly collect fuel from the ground. It enables high-speed acquisition from nearly any angle.</p>
+            </div>
+        </article>
+        
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        function setTheme(theme) {
+            body.classList.toggle('dark-mode', theme === 'dark');
+            themeToggle.querySelector('span').textContent = theme === 'dark' ? '☀' : '☾';
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const nextTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+            setTheme(nextTheme);
+            localStorage.setItem('theme', nextTheme);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name - Zachary Keepers</title>
+    <link rel="stylesheet" href="../style.css?v=2">
+</head>
+<body>
+    <main class="content-page project-blog">
+        <button id="theme-toggle" aria-label="Toggle light and dark mode">
+            <span aria-hidden="true">☾</span>
+        </button>
+        <a class="back-link" href="../project-portfolio.html">← Back to Project Portfolio</a>
+
+        <h1>Project Name</h1>
+        <p>Write a short introduction to this project here.</p>
+
+        <!-- Copy the project-update section below whenever you want to add another blog update. -->
+        <article class="project-update">
+            <h2>Update Title</h2>
+
+            <figure>
+                <!-- Replace this placeholder with:
+                <img src="../project-images/project-image.jpg" alt="Describe what is shown in this project image">
+                -->
+                <div class="project-photo-placeholder" role="img" aria-label="Project image placeholder">Add project image</div>
+                <figcaption>Write an image caption here.</figcaption>
+            </figure>
+
+            <!-- Replace this placeholder with the text for your update. -->
+            <textarea class="update-text" aria-label="Project update text">Write your project update here.</textarea>
+        </article>
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        function setTheme(theme) {
+            body.classList.toggle('dark-mode', theme === 'dark');
+            themeToggle.querySelector('span').textContent = theme === 'dark' ? '☀' : '☾';
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const nextTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+            setTheme(nextTheme);
+            localStorage.setItem('theme', nextTheme);
+        });
+    </script>
+</body>
+</html>

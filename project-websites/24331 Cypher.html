@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTC 24331 25-26 Cypher - Zachary Keepers</title>
+    <link rel="stylesheet" href="../style.css?v=2">
+</head>
+<body>
+    <main class="content-page project-blog">
+        <button id="theme-toggle" aria-label="Toggle light and dark mode">
+            <span aria-hidden="true">☾</span>
+        </button>
+        <a class="back-link" href="../project-portfolio.html">← Back to Project Portfolio</a>
+
+        <h1>Cypher</h1>
+        <p>Cypher was FIRST Tech Challenge Team 24331's 2025–2026 State and World Championship robot. As Chief Engineer, I led the strategy, prototyping, CAD design, and fabrication.
+            Cypher was the Finalist Alliance Partner at the Alabama State Championship.
+        </p>
+        <p class="project-disclaimer">As Cypher is an old project its design history is not shown.</p>
+
+        <article class="project-update">
+            <h2>Overview</h2>
+
+            <figure>
+                <img src="../project-photos/Cypher Photo.jpg" alt="Fancy picture of Cypher">
+                <figcaption>Picture of Cypher outdoors</figcaption>
+            </figure>
+
+            <div class="update-content">
+                <p>Cypher is FTC Team 24331 Caesar Circuitry's most consistent, intelligent, and elegant robot, built for the 2025–2026 season. It features a
+                    low-center-of-gravity custom aluminum chassis and a 270-degree rotating turret.</p>
+
+                <h3>Intake / Transfer Assembly</h3>
+                <p>The triple roller system operates at 1,650 RPM through miter gears and uses a servo-actuated stopper for precise artifact management. 
+                    By combining fast Gecko wheels, transfer belts, and analog distance sensors, the robot reliably stores up to three artifacts while cutting down software loop time.</p>
+
+                <h3>Parallel Plate Belt Drive & Drivetrain</h3>
+                <p>The robot uses a custom aluminum parallel plate belt drive to maintain a low center of gravity and mecanum wheels for
+                    holonomic mobility. It is guided by Pedro Pathing and robot-oriented driving.</p>
+
+                <h3>270° Rotating Turret</h3>
+                <p>Driven by a custom 2:1 gear ratio and a REV Through Bore Encoder, the turret rotates 270 degrees within an 18-inch height limit.
+                    Controlled by a dual PID system, it continuously tracks targets automatically, saving an average of 20 seconds per match by eliminating manual goal alignment.</p>
+
+                <h3>Fixed Hood Launcher</h3>
+                <p>The launcher incorporates dual 6,000 RPM motors and a high-durometer weighted flywheel to provide fast spin-up times and consistent
+                    power across all three shots. Velocity profiles are optimized via Cubic Hermite Splines and managed with a custom PIDV controller to maintain steady transit velocities.</p>
+
+                <h3>Control & Vision System (Limelight & Autonomous)</h3>
+                <p>An Extended Kalman Filter (EKF) fuses GoBilda Pinpoint odometry with Limelight AprilTag vision to reduce localization drift from ±3 inches down
+                     to ±1 inch. Additionally, the system employs PathLegion for on-the-fly QR code path selection and Panels Dashboard for real-time PID tuning to achieve precise targeting.</p>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        function setTheme(theme) {
+            body.classList.toggle('dark-mode', theme === 'dark');
+            themeToggle.querySelector('span').textContent = theme === 'dark' ? '☀' : '☾';
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const nextTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+            setTheme(nextTheme);
+            localStorage.setItem('theme', nextTheme);
+        });
+    </script>
+</body>
+</html>
